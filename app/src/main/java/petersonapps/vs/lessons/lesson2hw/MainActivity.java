@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -14,8 +12,6 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 import android.app.UiModeManager;
-
-import static android.support.v7.app.AppCompatDelegate.MODE_NIGHT_YES;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
@@ -90,11 +86,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calculation();
         currentAction = v.getContentDescription().toString();
 
-        expressionField.setText(decimalFormat.format(valueOne) + v.getContentDescription().toString());
+        expressionField.setText(decimalFormat.format(valueOne) + currentAction);
         resultField.setText(null);
     }
 
     private void calculation() {
+
+        if(resultField.getText().length() == 0){
+            return;
+        }
 
         if(!Double.isNaN(valueOne)){
             valueTwo = Double.parseDouble(resultField.getText().toString());
