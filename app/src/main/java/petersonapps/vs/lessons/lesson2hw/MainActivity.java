@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 import android.app.UiModeManager;
+import android.widget.Toast;
+import static petersonapps.vs.lessons.lesson2hw.Calculation.calculate;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
@@ -83,11 +86,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        calculation();
-        currentAction = v.getContentDescription().toString();
-
-        expressionField.setText(decimalFormat.format(valueOne) + currentAction);
-        resultField.setText(null);
+            calculation();
+            currentAction = v.getContentDescription().toString();
+            expressionField.setText(decimalFormat.format(valueOne) + currentAction);
+            resultField.setText(null);
     }
 
     private void calculation() {
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(!Double.isNaN(valueOne)){
             valueTwo = Double.parseDouble(resultField.getText().toString());
             resultField.setText(null);
-            valueOne = calculate(valueOne, valueTwo);
+            valueOne = calculate(currentAction, valueOne, valueTwo);
         }
         else{
             try{
@@ -107,26 +109,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }catch(Exception e){
                 e.printStackTrace();
             }
-        }
-    }
-
-    double calculate(double valueOne, double valueTwo) {
-
-        switch (currentAction){
-            case "+":
-                return valueOne += valueTwo;
-
-            case "-":
-                return valueOne -= valueTwo;
-
-            case "*":
-                return valueOne *= valueTwo;
-
-            case "/":
-                return valueOne /= valueTwo;
-
-            default:
-                return Double.NaN;
         }
     }
 
@@ -145,5 +127,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void NightModeOff(View view) {
         UiModeManager uiManager = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
         uiManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
+    }
+
+    private void showToastMessage(int messageId) {
+        Toast toastMessage = Toast.makeText(this, messageId, Toast.LENGTH_LONG);
+        toastMessage.setGravity(Gravity.CENTER, 0, 0);
+        toastMessage.show();
     }
 }

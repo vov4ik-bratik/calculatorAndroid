@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lesson2hw</string>
+    <string name="division_zero">Divide by 0 error!\nEnter other digit.</string>
 </resources>
