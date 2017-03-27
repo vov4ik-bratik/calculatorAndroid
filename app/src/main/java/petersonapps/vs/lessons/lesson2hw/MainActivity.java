@@ -1,23 +1,27 @@
 package petersonapps.vs.lessons.lesson2hw;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import java.text.DecimalFormat;
+
+import android.app.UiModeManager;
+
+import static android.support.v7.app.AppCompatDelegate.MODE_NIGHT_YES;
+
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     TextView expressionField;
     TextView resultField;
-
-    Button equals;
-    Button plus;
-    Button minus;
-    Button multiply;
-    Button divide;
 
     Switch nightMode;
     Switch advancedCalc;
@@ -26,25 +30,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     double valueTwo;
 
     String currentAction;
+    private DecimalFormat decimalFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        decimalFormat = new DecimalFormat("#.##########");
+
         expressionField = (TextView) findViewById(R.id.expressionField);
         resultField = (TextView) findViewById(R.id.resultField);
 
-        equals = (Button) findViewById(R.id.buttonCalculate);
-        plus = (Button) findViewById(R.id.buttonPlus);
-        minus = (Button) findViewById(R.id.buttonMinus);
-        multiply= (Button) findViewById(R.id.buttonMultiply);
-        divide = (Button) findViewById(R.id.buttonDivide);
-
         nightMode = (Switch) findViewById(R.id.switchNightMode);
+
         advancedCalc  = (Switch) findViewById(R.id.switchadvancedCalc);
-
-
+        advancedCalc.setOnCheckedChangeListener(this);
     }
 
     public void onButtonDigitClick(View v){
@@ -74,12 +75,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             resultField.setText("");
             expressionField.setText("");
         }
-
     }
 
     public void onEqualsClick(View view) {
         calculation();
-        expressionField.setText(expressionField.getText().toString() + valueTwo + " = " + valueOne);
+        expressionField.setText(expressionField.getText().toString() + decimalFormat.format(valueTwo)
+                + " = " + decimalFormat.format(valueOne));
         valueOne = Double.NaN;
         currentAction = "0";
     }
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calculation();
         currentAction = v.getContentDescription().toString();
 
-        expressionField.setText(valueOne + v.getContentDescription().toString());
+        expressionField.setText(decimalFormat.format(valueOne) + v.getContentDescription().toString());
         resultField.setText(null);
     }
 
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private double calculate(double valueOne, double valueTwo) {
+    double calculate(double valueOne, double valueTwo) {
 
         switch (currentAction){
             case "+":
@@ -129,6 +130,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        Intent intend = new Intent(this, AdvancedCalcActivity.class);
+        startActivity(intend);
+        finish();
+    }
 
+    public void NightModeOn(View view) {
+        UiModeManager uiManager = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
+        uiManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
+    }
 
+    public void NightModeOff(View view) {
+        UiModeManager uiManager = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
+        uiManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
+    }
 }

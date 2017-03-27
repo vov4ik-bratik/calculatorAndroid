@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorNightBackground">
+    android:layout_height="match_parent">
 
 
     <LinearLayout
@@ -20,8 +19,7 @@
             android:layout_marginRight="5dp"
             android:gravity="center_vertical"
             android:textAlignment="viewStart"
-            android:textSize="22sp"
-            android:textColor="@color/colorNightSymbol"/>
+            android:textSize="22sp" />
     </LinearLayout>
 
     <TextView
@@ -36,8 +34,7 @@
         android:inputType="number|numberSigned|numberDecimal"
         android:text="0"
         android:textAlignment="textEnd"
-        android:textSize="18dp"
-        android:textColor="@color/colorNightSymbol"/>
+        android:textSize="18dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,12 +50,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="onClearClick"
-            android:text="C"
-            style="@style/ButtonNightLeft"/>
+            android:text="C" />
 
         <Button
             android:id="@+id/buttonInvert"
-            style="@style/ButtonNight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -69,8 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="√"
-            style="@style/ButtonNight"/>
+            android:text="√" />
 
         <Button
             android:id="@+id/buttonPow"
@@ -78,8 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:contentDescription="^"
-            android:text="x^y"
-            style="@style/ButtonNightRight"/>
+            android:text="x^y" />
 
     </LinearLayout>
 
@@ -93,7 +86,6 @@
 
         <Button
             android:id="@+id/button7"
-            style="@style/ButtonNightLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -103,7 +95,6 @@
 
         <Button
             android:id="@+id/button8"
-            style="@style/ButtonNight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -113,7 +104,6 @@
 
         <Button
             android:id="@+id/button9"
-            style="@style/ButtonNight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -123,7 +113,6 @@
 
         <Button
             android:id="@+id/buttonPlus"
-            style="@style/ButtonNightRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -142,7 +131,6 @@
 
         <Button
             android:id="@+id/button4"
-            style="@style/ButtonNightLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -152,7 +140,6 @@
 
         <Button
             android:id="@+id/button5"
-            style="@style/ButtonNight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -162,7 +149,6 @@
 
         <Button
             android:id="@+id/button6"
-            style="@style/ButtonNight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -172,7 +158,6 @@
 
         <Button
             android:id="@+id/buttonMinus"
-            style="@style/ButtonNightRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -191,7 +176,6 @@
 
         <Button
             android:id="@+id/button1"
-            style="@style/ButtonNightLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -201,7 +185,6 @@
 
         <Button
             android:id="@+id/button2"
-            style="@style/ButtonNight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -211,7 +194,6 @@
 
         <Button
             android:id="@+id/button3"
-            style="@style/ButtonNight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -221,7 +203,6 @@
 
         <Button
             android:id="@+id/buttonMultiply"
-            style="@style/ButtonNightRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -241,7 +222,6 @@
 
         <Button
             android:id="@+id/buttonEquals"
-            style="@style/ButtonNightLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -251,7 +231,6 @@
 
         <Button
             android:id="@+id/button0"
-            style="@style/ButtonNight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -261,7 +240,6 @@
 
         <Button
             android:id="@+id/buttonPoint"
-            style="@style/ButtonNight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -271,7 +249,6 @@
 
         <Button
             android:id="@+id/buttonDivide"
-            style="@style/ButtonNightRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -293,8 +270,7 @@
             android:layout_weight="1"
             android:text="Night Mode"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorNightSymbol"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView"
@@ -303,8 +279,7 @@
             android:layout_weight="1"
             android:text="Advanced Calculator"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorNightSymbol"/>
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -337,9 +312,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="73dp"
                 android:layout_weight="0.44"
-                android:checked="true"
                 android:textAlignment="viewStart"
-                android:onClick="NightModeOff"/>
+                android:onClick="NightModeOn"/>
         </RelativeLayout>
 
     </LinearLayout>

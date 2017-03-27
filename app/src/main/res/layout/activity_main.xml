@@ -15,7 +15,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textAlignment="textEnd"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_vertical"
+            android:textAlignment="viewStart"
             android:textSize="22sp" />
     </LinearLayout>
 
@@ -284,6 +287,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="73dp"
                 android:layout_weight="0.44"
+                android:onClick="NightModeOn"
                 android:textAlignment="viewStart" />
         </RelativeLayout>
 
